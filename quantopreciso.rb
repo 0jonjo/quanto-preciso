@@ -3,7 +3,7 @@ puts "Digite r para saber quanto precisa na recuperação"
 escolha = gets.chomp
 
 if escolha == "r"
-	puts "Digite sua média anual"
+	puts "Digite sua média anual no formato X.X"
 	mediaanual = gets.chomp.to_f
 	if mediaanual >= 6
 		puts "Você não está em recuperação, já passou :)" 
