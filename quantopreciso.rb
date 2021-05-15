@@ -1,3 +1,13 @@
+#Funções de impressão de resultado
+def japacou()
+	return puts "Você já está aprovado por média"
+	end
+
+def precisade(nota)
+	return puts "Você precisa de no mínimo #{nota.ceil(1)} para passar"
+	end
+
+#Início do programa
 puts "Digite qualquer tecla para saber quanto precisa no 4º bimestre"
 puts "Digite r para saber quanto precisa na recuperação"
 escolha = gets.chomp
@@ -6,12 +16,12 @@ if escolha == "r"
 	puts "Digite sua média anual no formato X.X"
 	mediaanual = gets.chomp.to_f
 	if mediaanual >= 6
-		puts "Você não está em recuperação, já passou :)" 
+		japacou()
 	elsif mediaanual < 2.5
 		puts "Você já reprovou :(" 
 	else 
 		recuperacao = 15 - (mediaanual * 2)
-		puts "Você precisa de no mínimo #{recuperacao.ceil(1)}" 
+		precisade(recuperacao) 
 	end
 
 else
@@ -22,9 +32,11 @@ else
 	puts "As notas digitadas foram #{bim1}, #{bim2} e #{bim3}"
 	resultado = 24 - (bim1 + bim2 + bim3)
 		if resultado <= 0
-			puts "Você já está passado por média"
+			japacou()
+		elsif resultado > 10
+			puts "Você já está em recuperação!"
 		else 
-			puts "Você precisa de #{resultado.ceil(1)} para passar por média"
+			precisade(resultado)
 		end
 end
 
