@@ -1,10 +1,15 @@
-#Funções de impressão de resultado
+#Funções de coleta de dados e impressão de resultado
+def peganota(description)
+	puts "Digite a nota #{description} no formato X.X "
+	gets.chomp.to_f 
+	end
+
 def japacou()
-	return puts "Você já está aprovado por média"
+	return puts "Você já está aprovado por média."
 	end
 
 def precisade(nota)
-	return puts "Você precisa de no mínimo #{nota.ceil(1)} para passar"
+	return puts "Você precisa de no mínimo #{nota.ceil(1)} para passar."
 	end
 
 #Início do programa
@@ -13,8 +18,7 @@ puts "Digite r para saber quanto precisa na recuperação"
 escolha = gets.chomp
 
 if escolha == "r"
-	puts "Digite sua média anual no formato X.X"
-	mediaanual = gets.chomp.to_f
+	mediaanual = peganota('da sua média anual')
 	if mediaanual >= 6
 		japacou()
 	elsif mediaanual < 2.5
@@ -25,10 +29,9 @@ if escolha == "r"
 	end
 
 else
-	puts "Digite as notas dos 3 bimestres no formato X.X"
-	bim1 = gets.chomp.to_f
-	bim2 = gets.chomp.to_f
-	bim3 = gets.chomp.to_f
+	bim1 = peganota('do 1º bim')
+	bim2 = peganota('do 2º bim')
+	bim3 = peganota('do 3º bim')
 	puts "As notas digitadas foram #{bim1}, #{bim2} e #{bim3}"
 	resultado = 24 - (bim1 + bim2 + bim3)
 		if resultado <= 0
