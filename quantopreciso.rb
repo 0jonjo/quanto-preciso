@@ -5,11 +5,11 @@ def peganota(description)
 	end
 
 def japacou()
-	return puts "Você já está aprovado por média."
+	puts "Você já está aprovado por média."
 	end
 
 def precisade(nota)
-	return puts "Você precisa de no mínimo #{nota.ceil(1)} para passar."
+	puts "Você precisa de no mínimo #{nota.ceil(1)} para passar."
 	end
 
 #Início do programa
