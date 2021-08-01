@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Funções de coleta de dados e impressão de resultado
+# Funcoes de coleta de dados e impressao de resultado
 def peganota(description)
   puts "Digite a nota #{description} no formato X.X "
   gets.chomp.to_f
@@ -14,7 +14,7 @@ def precisade(nota)
   puts "Você precisa de no mínimo #{nota.ceil(1)} para passar."
 end
 
-# Início do programa
+# Inicio do programa
 puts 'Digite qualquer tecla para saber quanto precisa no 4º bimestre'
 puts 'Digite r para saber quanto precisa na recuperação'
 escolha = gets.chomp
@@ -35,11 +35,12 @@ else
   bim3 = peganota('do 3º bim')
   puts "As notas digitadas foram #{bim1}, #{bim2} e #{bim3}"
   resultado = 24 - (bim1 + bim2 + bim3)
-    if resultado <= 0
-      japacou
-    elsif resultado > 10
-      puts 'Você já está em recuperação!'
-    else
-      precisade(resultado)
-    end
+
+  if resultado <= 0
+    japacou
+  elsif resultado > 10
+    puts 'Você já está em recuperação!'
+  else
+    precisade(resultado)
+  end
 end
