@@ -21,9 +21,10 @@ escolha = gets.chomp
 
 if escolha == 'r'
   mediaanual = peganota('da sua média anual')
-  if mediaanual >= 6
+  case mediaanual
+  when 6..10
     japacou
-  elsif mediaanual < 2.5
+  when 0..2.5
     puts 'Você já reprovou :('
   else
     recuperacao = 15 - (mediaanual * 2)
@@ -36,9 +37,10 @@ else
   puts "As notas digitadas foram #{bim1}, #{bim2} e #{bim3}"
   resultado = 24 - (bim1 + bim2 + bim3)
 
-  if resultado <= 0
+  case resultado
+  when -6..0
     japacou
-  elsif resultado > 10
+  when 10..23.9
     puts 'Você já está em recuperação!'
   else
     precisade(resultado)
