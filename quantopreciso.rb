@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Funcoes de coleta de dados e impressao de resultado
+# Funcoes de coleta e tratamento de dados e impressao de resultado
 def peganota(description)
   puts "Digite a nota #{description} no formato X.X "
   x = gets.chomp.to_f
