@@ -8,6 +8,7 @@ class Grade
     @bim3 = bim3
     @bim4 = bim4
     @media = media
+    @rec = rec
   end    
 
   def need_bim4
@@ -25,6 +26,11 @@ class Grade
     @media = (@bim1 + @bim2 + @bim3 + @bim4) / 4 
   end
 
+  def rec
+    self.reprovado if @media < 2.5
+    @rec = 15 - (@media * 2)
+  end 
+
   def aprovado
     "Aprovado"
   end
@@ -34,7 +40,7 @@ class Grade
   end 
   
   def reprovado
-    "Reprovado"
+    raise "Reprovado"
   end  
 
 end
