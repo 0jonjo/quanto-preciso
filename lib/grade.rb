@@ -27,8 +27,11 @@ class Grade
   end
 
   def rec
-    self.reprovado if @media < 2.5
-    @rec = 15 - (@media * 2)
+    if @media >= 2.5 && @media < 6.0
+      @rec = 15 - (@media * 2)
+    #else
+      #dado_errado
+    end      
   end 
 
   def aprovado
@@ -40,7 +43,11 @@ class Grade
   end 
   
   def reprovado
-    raise "Reprovado"
+    "Reprovado"
+  end 
+  
+  def dado_errado
+    raise "Não é possível calcular"
   end  
 
 end

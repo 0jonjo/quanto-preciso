@@ -4,17 +4,12 @@ describe Grade do
 
   context "Create Grade and calculate" do
     it ":initialize" do
-      grade = Grade.new(6, 6, 6, 0)
-      expect(grade.bim1).to eq(6)
+      expect(Grade.new(6, 6, 6, 0).bim1).to eq(6)
     end    
     
     it ":media" do
-      expect(Grade.new(7, 7, 5, 5).media).to eq(6)
+      expect(Grade.new(6, 6, 6, 6).media).to eq(6)
     end  
-
-    it ":media rec" do
-      expect{Grade.new(1, 1, 1, 1).media}.to raise_error("Reprovado")
-    end 
 
     it ":need_bim4" do
       expect(Grade.new(7, 6, 5, 0).need_bim4).to eq(6)
@@ -30,6 +25,14 @@ describe Grade do
 
     it ":rec" do
       expect(Grade.new(5, 5, 5, 5).rec).to eq(5)
+    end
+    
+    xit ":rec reprovado" do
+      expect{Grade.new(1, 1, 1, 1).rec}.to raise_error("Não é possível calcular")
+    end 
+
+    xit ":rec aprovado" do
+      expect{Grade.new(6, 6, 6, 6).rec}.to raise_error("Não é possível calcular")
     end 
     
   end  
@@ -44,7 +47,7 @@ describe Grade do
     end  
 
     it ":reprovado" do
-      expect{Grade.new(1, 1, 1, 1).reprovado}.to raise_error("Reprovado")
+      expect(Grade.new(1, 1, 1, 1).reprovado).to eq("Reprovado")
     end    
   end    
 end
