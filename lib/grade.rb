@@ -29,8 +29,9 @@ class Grade
   def rec
     if @media >= 2.5 && @media < 6.0
       @rec = 15 - (@media * 2)
-    #else
-      #dado_errado
+    else
+      @rec = 0
+      fora_recuperacao
     end      
   end 
 
@@ -46,8 +47,8 @@ class Grade
     "Reprovado"
   end 
   
-  def dado_errado
-    raise "Não é possível calcular"
+  def fora_recuperacao
+    "Não está em recuperação."
   end  
 
 end

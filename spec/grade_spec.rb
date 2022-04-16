@@ -27,12 +27,12 @@ describe Grade do
       expect(Grade.new(5, 5, 5, 5).rec).to eq(5)
     end
     
-    xit ":rec reprovado" do
-      expect{Grade.new(1, 1, 1, 1).rec}.to raise_error("Não é possível calcular")
+    it ":rec reprovado" do
+      expect(Grade.new(1, 1, 1, 1).rec).to eq("Não está em recuperação.")
     end 
 
-    xit ":rec aprovado" do
-      expect{Grade.new(6, 6, 6, 6).rec}.to raise_error("Não é possível calcular")
+    it ":rec aprovado" do
+      expect(Grade.new(6, 6, 6, 6).rec).to eq("Não está em recuperação.")
     end 
     
   end  
@@ -49,5 +49,10 @@ describe Grade do
     it ":reprovado" do
       expect(Grade.new(1, 1, 1, 1).reprovado).to eq("Reprovado")
     end    
+
+    it ":fora_recuperacao" do
+      expect(Grade.new(3, 3, 3, 3).fora_recuperacao).to eq("Não está em recuperação.")
+    end 
+
   end    
 end
