@@ -9,6 +9,7 @@ class Grade
     @bim4 = bim4
     @media = media
     @rec = rec
+    @final = final
   end    
 
   def need_bim4
@@ -26,14 +27,27 @@ class Grade
     @media = (@bim1 + @bim2 + @bim3 + @bim4) / 4 
   end
 
-  def rec
+  def need_rec
+    need_rec = 15 - (@media * 2)
     if @media >= 2.5 && @media < 6.0
-      @rec = 15 - (@media * 2)
+      need_rec
     else
-      @rec = 0
       fora_recuperacao
     end      
   end 
+
+  def set_rec(nota)
+    @rec = nota
+  end  
+
+  def final
+    if @media >= 6.0
+      @final = @media
+    else
+      @rec = 0 if @rec == nil
+      @final = (@rec + @media * 2) / 3   
+    end
+  end
 
   def aprovado
     "Aprovado"

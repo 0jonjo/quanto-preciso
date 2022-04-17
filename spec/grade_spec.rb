@@ -23,17 +23,27 @@ describe Grade do
       expect(Grade.new(4, 4, 4, 0).need_bim4).to eq("Em recuperação")
     end 
 
-    it ":rec" do
-      expect(Grade.new(5, 5, 5, 5).rec).to eq(5)
+    it ":need_rec" do
+      expect(Grade.new(5, 5, 5, 5).need_rec).to eq(5)
     end
     
-    it ":rec reprovado" do
-      expect(Grade.new(1, 1, 1, 1).rec).to eq("Não está em recuperação.")
+    it ":need_rec reprovado" do
+      expect(Grade.new(1, 1, 1, 1).need_rec).to eq("Não está em recuperação.")
     end 
 
-    it ":rec aprovado" do
-      expect(Grade.new(6, 6, 6, 6).rec).to eq("Não está em recuperação.")
+    it ":need_rec aprovado" do
+      expect(Grade.new(6, 6, 6, 6).need_rec).to eq("Não está em recuperação.")
     end 
+
+    it ":final" do
+      expect(Grade.new(6, 6, 6, 6).final).to eq(6)
+    end
+
+    it ":final calc" do
+      grade = Grade.new(5, 5, 5, 5)
+      grade.set_rec(8.0)
+      expect(grade.final).to eq(6.0)
+    end
     
   end  
 
